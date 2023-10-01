@@ -4,6 +4,10 @@ import Test.QuickCheck
 
 main :: IO ()
 main = do
+  putStrLn "1. nAnd tests:"
+  print (nAnd True True)
+  print (nAnd_1 True True)
+  print (nAnd_2 True True)
   putStrLn "2. prop_nAnd tests:"
   quickCheck prop_nAnd
   quickCheck prop_nAnd_1
@@ -94,12 +98,16 @@ nRoots a b c
 smallerRoot :: Float -> Float -> Float -> Float
 smallerRoot a b c
   | a == 0 = error "the first argument should be non-zero!"
-  | otherwise = -b - sqrt (b*b - 4*a*c) / (2*a)
+  | d < 0 = error "no roots!"
+  | otherwise = -b - sqrt (d) / (2*a)
+  where d = b*b - 4*a*c
 
 largerRoot :: Float -> Float -> Float -> Float
 largerRoot a b c
   | a == 0 = error "the first argument should be non-zero!"
-  | otherwise = -b + sqrt (b*b - 4*a*c) / (2*a)
+  | d < 0 = error "no roots!"
+  | otherwise = -b + sqrt (d) / (2*a)
+  where d = b*b - 4*a*c
 
 -- 6
 power2 :: Integer -> Integer
