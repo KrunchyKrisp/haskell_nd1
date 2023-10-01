@@ -99,15 +99,21 @@ smallerRoot :: Float -> Float -> Float -> Float
 smallerRoot a b c
   | a == 0 = error "the first argument should be non-zero!"
   | d < 0 = error "no roots!"
-  | otherwise = -b - sqrt (d) / (2*a)
-  where d = b*b - 4*a*c
+  | r > 0 = -b - r
+  | r < 0 = -b + r
+  where 
+    d = b*b - 4*a*c
+    r = sqrt (d) / (2*a)
 
 largerRoot :: Float -> Float -> Float -> Float
 largerRoot a b c
   | a == 0 = error "the first argument should be non-zero!"
   | d < 0 = error "no roots!"
-  | otherwise = -b + sqrt (d) / (2*a)
-  where d = b*b - 4*a*c
+  | r > 0 = -b + r
+  | r < 0 = -b - r
+  where 
+    d = b*b - 4*a*c
+    r = sqrt (d) / (2*a)
 
 -- 6
 power2 :: Integer -> Integer
