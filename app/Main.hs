@@ -25,8 +25,8 @@ main = do
   --print (nRoots 0 0 0)
   putStrLn ""
   putStrLn "5. smallerRoot/largerRoot tests:"
-  print (smallerRoot 1 10 0)
-  print (largerRoot 1 10 0)
+  print (smallerRoot (-2) 5 2)
+  print (largerRoot (-2) 5 2 )
   putStrLn ""
   putStrLn "6. power2 tests:"
   print (power2 (-10))
@@ -99,21 +99,17 @@ smallerRoot :: Float -> Float -> Float -> Float
 smallerRoot a b c
   | a == 0 = error "the first argument should be non-zero!"
   | d < 0 = error "no roots!"
-  | r > 0 = -b - r
-  | r < 0 = -b + r
-  where 
-    d = b*b - 4*a*c
-    r = sqrt (d) / (2*a)
+  | a > 0 = (-b - sqrt (d)) / (2*a)
+  | a < 0 = (-b + sqrt (d)) / (2*a)
+  where d = b*b - 4*a*c
 
 largerRoot :: Float -> Float -> Float -> Float
 largerRoot a b c
   | a == 0 = error "the first argument should be non-zero!"
   | d < 0 = error "no roots!"
-  | r > 0 = -b + r
-  | r < 0 = -b - r
-  where 
-    d = b*b - 4*a*c
-    r = sqrt (d) / (2*a)
+  | a > 0 = (-b + sqrt (d)) / (2*a)
+  | a < 0 = (-b - sqrt (d)) / (2*a)
+  where d = b*b - 4*a*c
 
 -- 6
 power2 :: Integer -> Integer
