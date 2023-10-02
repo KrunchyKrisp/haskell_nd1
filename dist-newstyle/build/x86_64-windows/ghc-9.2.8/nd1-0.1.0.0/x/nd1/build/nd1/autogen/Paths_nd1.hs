@@ -42,12 +42,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "D:\\cabal\\bin"
-libdir     = "D:\\cabal\\x86_64-windows-ghc-9.2.8\\nd1-0.1.0.0-inplace-nd1"
-dynlibdir  = "D:\\cabal\\x86_64-windows-ghc-9.2.8"
-datadir    = "D:\\cabal\\x86_64-windows-ghc-9.2.8\\nd1-0.1.0.0"
-libexecdir = "D:\\cabal\\nd1-0.1.0.0-inplace-nd1\\x86_64-windows-ghc-9.2.8\\nd1-0.1.0.0"
-sysconfdir = "D:\\cabal\\etc"
+bindir     = "C:\\cabal\\bin"
+libdir     = "C:\\cabal\\x86_64-windows-ghc-9.2.8\\nd1-0.1.0.0-inplace-nd1"
+dynlibdir  = "C:\\cabal\\x86_64-windows-ghc-9.2.8"
+datadir    = "C:\\cabal\\x86_64-windows-ghc-9.2.8\\nd1-0.1.0.0"
+libexecdir = "C:\\cabal\\nd1-0.1.0.0-inplace-nd1\\x86_64-windows-ghc-9.2.8\\nd1-0.1.0.0"
+sysconfdir = "C:\\cabal\\etc"
 
 getBinDir     = catchIO (getEnv "nd1_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "nd1_libdir")     (\_ -> return libdir)
